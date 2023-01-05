@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="/begin" method="POST">
+  <h1>Please select a survey</h1>
+  {% for key, survey in surveys.items() %}
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="survey_name" id="{{key}}" value="{{key}}">
+    <label class="form-check-label" for="{{key}}">
+      {{survey.title}}<br>
+      {{survey.instructions}}
+    </label>
+  </div>
+  {% endfor %}
+  <button type="submit" class="btn btn-primary">Start</button>
+</form>
+{% endblock %}
